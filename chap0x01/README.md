@@ -22,6 +22,11 @@
 
 ![](img/7.png)
 
+(5.1)如何得到user-data:
+在我们手动安装的Ubuntu中输入：cat /var/log/installer/autoinstall-user-data,如果没有权限就sudo一下，这样就可以查看到文件的内容了。之后用sudo chown修改文件属主后就可以下载这个文件了,之后再用scp将文件拷贝到本地，之后对照实例文件进行修改就可以得到user-data文件了。
+
+（5.2）制作iso镜像：用Vboxmanage创建一个相关的磁盘文件，并将本地的user-data和meta-data导入虚拟机中进行镜像的创建，得到focal-init.iso。
+
 （6）之后新建一个名为focal-auto-demo的虚拟机，找到这个新建好的无人值守的虚拟机，点击设置，点击储存来移除掉控制器，之后在「控制器：SATA」下新建 2 个虚拟光盘，按顺序先挂载纯净版Ubuntu安装镜像文件，后挂载focal-init.iso。
 
 ![](img/8.png)
